@@ -1,0 +1,50 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.9.34728.123
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = ".github", ".github", "{D4D8BEFD-7380-467C-A981-6A9472FAAD52}"
+	ProjectSection(SolutionItems) = preProject
+		.github\dependabot.yml = .github\dependabot.yml
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "workflows", "workflows", "{C8D5C4C8-5214-4DEA-BF10-680A77587D29}"
+	ProjectSection(SolutionItems) = preProject
+		.github\workflows\.releaserc = .github\workflows\.releaserc
+		.github\workflows\build.yml = .github\workflows\build.yml
+		.github\workflows\release.yml = .github\workflows\release.yml
+		.github\workflows\todo.yml = .github\workflows\todo.yml
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "src", "src", "{26845B45-9B85-4A21-9FA1-30B685575DE9}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "EAVFW.Extensions.QuickForm", "src\EAVFW.Extensions.QuickForm\EAVFW.Extensions.QuickForm.csproj", "{FB127CF3-2E53-4AAB-9497-00D7A8DE3566}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{70B8A912-CC56-4EE7-96B4-4DD6D53BFF71}"
+	ProjectSection(SolutionItems) = preProject
+		Directory.Build.props = Directory.Build.props
+		README.md = README.md
+	EndProjectSection
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{FB127CF3-2E53-4AAB-9497-00D7A8DE3566}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{FB127CF3-2E53-4AAB-9497-00D7A8DE3566}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{FB127CF3-2E53-4AAB-9497-00D7A8DE3566}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{FB127CF3-2E53-4AAB-9497-00D7A8DE3566}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{C8D5C4C8-5214-4DEA-BF10-680A77587D29} = {D4D8BEFD-7380-467C-A981-6A9472FAAD52}
+		{FB127CF3-2E53-4AAB-9497-00D7A8DE3566} = {26845B45-9B85-4A21-9FA1-30B685575DE9}
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {EC1D5F25-FA96-4216-B70C-19BB92D67909}
+	EndGlobalSection
+EndGlobal

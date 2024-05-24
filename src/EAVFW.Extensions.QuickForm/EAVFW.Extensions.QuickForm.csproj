@@ -1,0 +1,36 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+	<PropertyGroup>
+		<TargetFrameworks>net6.0;net8.0</TargetFrameworks>
+		<ImplicitUsings>disable</ImplicitUsings>
+		<Nullable>disable</Nullable>
+
+		<Title>EAVFW.Extensions.QuickForm</Title>
+		<Authors>Poul Kjeldager</Authors>
+		<Description>EAVFW Extensions for QuickForm</Description>
+		<PackageReadmeFile>README.md</PackageReadmeFile>
+		<RepositoryUrl>https://github.com/EAVFW/EAVFW.Extensions.QuickForm</RepositoryUrl>
+	</PropertyGroup>
+
+
+	<ItemGroup>
+		<None Include="..\..\README.md" Link="README.md" Pack="true" PackagePath="\" />
+	 
+	</ItemGroup>
+
+	<ItemGroup Condition="$(UseEAVFromNuget) == 'false'">
+		<ProjectReference Include="$(LocalEAVFrameworkPath)\src\EAVFramework.csproj" />
+		<ProjectReference Include="$(LocalExternalpath)/EAVFW.Extensions.Documents/src/EAVFW.Extensions.Documents/EAVFW.Extensions.Documents.csproj" />
+
+	</ItemGroup>
+
+	<ItemGroup Condition="$(UseEAVFromNuget) != 'false'">
+		<PackageReference Include="EAVFramework" Version="$(EAVFrameworkVersion)" />
+		<PackageReference Include="EAVFW.Extensions.Documents" Version="3.0.3" />
+	</ItemGroup>
+
+	<ItemGroup>
+		<PackageReference Include="NJsonSchema" Version="10.9.0" />
+	</ItemGroup>
+
+</Project>
