@@ -1,11 +1,12 @@
-﻿using Newtonsoft.Json;
+using EAVFW.Extensions.QuickForm.Models.Questions;
+using Newtonsoft.Json;
 using Newtonsoft.Json.Serialization;
 
 namespace EAVFW.Extensions.QuickForms.Models
 {
-    public class IntroProps : QuestionProps
+    public class IntroProps 
     {
-        public override InputType InputType => InputType.Intro;
+        
         [JsonProperty("text")]
         public string Text { get; set; }
 

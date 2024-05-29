@@ -1,25 +1,36 @@
-﻿using Newtonsoft.Json;
+using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
 using System.Reflection;
 using System.Linq;
 using Newtonsoft.Json.Linq;
+using EAVFW.Extensions.QuickForm.Models.Questions;
 
 namespace EAVFW.Extensions.QuickForms.Models
 {
     public class QuestionPropsJsonConverter : JsonConverter<QuestionProps>
     {
-        private static Dictionary<InputType, Type> _pairs;
+        private static Dictionary<string, Type> _pairs;
         private static readonly JsonSerializer Serializer = new JsonSerializer();
         static QuestionPropsJsonConverter()
         {
-            _pairs = GetEnumerableOfType<QuestionProps>().ToDictionary(k => k.InputType, v => v.GetType());
+            _pairs = new Dictionary<string, Type>(StringComparer.OrdinalIgnoreCase);
+            WithPropsFromAssembly<QuestionPropsJsonConverter>();
         }
-        public static IEnumerable<T> GetEnumerableOfType<T>(params object[] constructorArgs) where T : class
+        public static void WithPropsFromAssembly<T>()
+        {
+            foreach (var pair in GetEnumerableOfType<T, QuestionProps>()
+                .Where(k => !string.IsNullOrEmpty(k.InputType))
+                .ToDictionary(k => k.InputType, v => v.GetType()))
+            {
+                _pairs.Add(pair.Key, pair.Value);
+            }
+        }
+        public static IEnumerable<T> GetEnumerableOfType<TAssembly,T>(params object[] constructorArgs) where T : class
         {
             List<T> objects = new List<T>();
             foreach (Type type in
-                Assembly.GetAssembly(typeof(T)).GetTypes()
+                Assembly.GetAssembly(typeof(TAssembly)).GetTypes()
                 .Where(myType => myType.IsClass && !myType.IsAbstract && myType.IsSubclassOf(typeof(T))))
             {
                 objects.Add((T) Activator.CreateInstance(type, constructorArgs));
@@ -34,8 +45,11 @@ namespace EAVFW.Extensions.QuickForms.Models
             var obj = JToken.ReadFrom(reader);
 
             var typeReader = obj.SelectToken("$.inputType").CreateReader();
-            var type = serializer.Deserialize<InputType>(typeReader);
-            var a = Activator.CreateInstance(_pairs[type]) as QuestionProps;
+            var type = serializer.Deserialize<string>(typeReader);
+
+          
+
+            var a = _pairs.ContainsKey(type) ? Activator.CreateInstance(_pairs[type]) as QuestionProps : new UnknoqnQuestionProps();
             serializer.Populate(obj.CreateReader(), a);
          
 
@@ -47,6 +61,7 @@ namespace EAVFW.Extensions.QuickForms.Models
             throw new NotImplementedException();
         }
 
+       
     }
 
 }

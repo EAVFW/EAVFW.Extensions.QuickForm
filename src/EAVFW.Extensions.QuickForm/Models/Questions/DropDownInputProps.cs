@@ -1,12 +1,12 @@
-﻿using Newtonsoft.Json;
+using Newtonsoft.Json;
 using System.Collections.Generic;
 
-namespace EAVFW.Extensions.QuickForms.Models
+namespace EAVFW.Extensions.QuickForm.Models.Questions
 {
     public class DropDownInputProps : QuestionProps
     {
         [JsonProperty("inputType")]
-        public override InputType InputType => InputType.Dropdown;
+        public override string InputType => InputTypes.Dropdown;
 
         [JsonProperty("text")]
         public string Text { get; set; } = string.Empty;
@@ -27,6 +27,6 @@ namespace EAVFW.Extensions.QuickForms.Models
         public Dictionary<string, string> Options { get; set; } = new Dictionary<string, string>();
 
     }
-     
+
 
 }

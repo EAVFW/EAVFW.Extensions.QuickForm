@@ -1,6 +1,6 @@
 using System.Runtime.Serialization;
 
-namespace EAVFW.Extensions.QuickForms.Models
+namespace EAVFW.Extensions.QuickForm.Models.RJSF
 {
     public enum RJSFOption
     {
@@ -9,7 +9,9 @@ namespace EAVFW.Extensions.QuickForms.Models
         [EnumMember(Value = "placeholder")]
         Placeholder,
         [EnumMember(Value = "widget")]
-        Widget
+        Widget,
+        [EnumMember(Value = "field")]
+        Field
     }
 
 }

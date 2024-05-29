@@ -41,12 +41,12 @@ namespace Hafnia.BusinessLogic.Plugins.LOITemplates
             if (context.Input.QuickFormDefinitionId == null)
             {
 
-                var quickFormProps = new QuickFormProps()
+                var quickFormProps = new QuickFormDefinition()
                 {
                     Intro =await _quickFormProvider.CreateIntroAsync(context.Input),
                     Submit = await _quickFormProvider.CreateSubmitAsync(context.Input),
                     Ending = await _quickFormProvider.CreateEndingAsync(context.Input),
-                    QuestionsContainer = await _quickFormProvider.CreateQuestionsAsync(context.Input)
+                    Questions = await _quickFormProvider.CreateQuestionsAsync(context.Input)
                 };
 
 
@@ -60,23 +60,23 @@ namespace Hafnia.BusinessLogic.Plugins.LOITemplates
             else
             {
                 // use JToken.merge to avoid overriding already written user input.
-                var modifiedQuickFormProps = new QuickFormProps()
+                var modifiedQuickFormProps = new QuickFormDefinition()
                 {
                     Intro = await _quickFormProvider.CreateIntroAsync(context.Input),
                     Submit = await _quickFormProvider.CreateSubmitAsync(context.Input),
                     Ending = await _quickFormProvider.CreateEndingAsync(context.Input),
-                    QuestionsContainer = await _quickFormProvider.CreateQuestionsAsync(context.Input)
+                    Questions = await _quickFormProvider.CreateQuestionsAsync(context.Input)
                 };
               
 
-                var oldDefinition = await _documentService.DecompressAndDeserializeAsync<QuickFormProps>(context.Input.QuickFormDefinition.Data);
+                var oldDefinition = await _documentService.DecompressAndDeserializeAsync<QuickFormDefinition>(context.Input.QuickFormDefinition.Data);
 
                 foreach (var deleted in 
-                    oldDefinition.QuestionsContainer.Keys
-                        .Where(key => !modifiedQuickFormProps.QuestionsContainer.Keys.Contains(key))
+                    oldDefinition.Questions.Keys
+                        .Where(key => !modifiedQuickFormProps.Questions.Keys.Contains(key))
                         .ToArray())
                 {
-                    oldDefinition.QuestionsContainer.Remove(deleted);
+                    oldDefinition.Questions.Remove(deleted);
                 }
 
                 var newJToken = JObject.FromObject(modifiedQuickFormProps);

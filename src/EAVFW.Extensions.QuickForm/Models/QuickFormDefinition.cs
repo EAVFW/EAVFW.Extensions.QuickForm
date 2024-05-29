@@ -1,9 +1,10 @@
+using EAVFW.Extensions.QuickForm.Models.Questions;
 using Newtonsoft.Json;
 using System.Collections.Generic;
 
 namespace EAVFW.Extensions.QuickForms.Models
 {
-    public class QuickFormProps
+    public class QuickFormDefinition
     {
         [JsonProperty("intro")]
         public IntroProps Intro { get; set; }
@@ -13,7 +14,7 @@ namespace EAVFW.Extensions.QuickForms.Models
         public EndingProps Ending { get; set; }
 
         [JsonProperty("questions")]
-        public Dictionary<string, QuestionProps> QuestionsContainer { get; set; }
+        public Dictionary<string, QuestionProps> Questions { get; set; }
 
         /// <summary>
         /// This is added such one may added extra data in the document

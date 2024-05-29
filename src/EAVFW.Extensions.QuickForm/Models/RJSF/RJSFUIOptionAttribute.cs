@@ -1,8 +1,8 @@
 using System;
 
-namespace EAVFW.Extensions.QuickForms.Models
+namespace EAVFW.Extensions.QuickForm.Models.RJSF
 {
-    [AttributeUsage(AttributeTargets.Property, AllowMultiple =true)]
+    [AttributeUsage(AttributeTargets.Property, AllowMultiple = true)]
     public class RJSFUIOptionAttribute : Attribute
     {
         public RJSFUIOptionAttribute(RJSFOption option, object value)

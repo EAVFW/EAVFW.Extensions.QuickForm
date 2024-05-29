@@ -1,9 +1,11 @@
-﻿using Newtonsoft.Json;
+using Newtonsoft.Json;
 using System.Collections.Generic;
+using System.Text.Json.Serialization;
 
-namespace EAVFW.Extensions.QuickForms.Models
+namespace EAVFW.Extensions.QuickForm.Models.RJSF
 {
-    [JsonConverter(typeof(UISchemaConverter))]
+    [Newtonsoft.Json.JsonConverter(typeof(UISchemaConverter))]
+
     public class UISchema : Dictionary<string, UISchema>
     {
         public UISchema(object value)
@@ -12,7 +14,7 @@ namespace EAVFW.Extensions.QuickForms.Models
         }
         public UISchema()
         {
-           
+
         }
         public string Label => this["ui:label"].Value as string;
         public object Value { get; set; }

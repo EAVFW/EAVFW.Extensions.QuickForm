@@ -1,12 +1,13 @@
+using EAVFW.Extensions.QuickForm.Models.Questions;
+using EAVFW.Extensions.QuickForm.Models.RJSF;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Serialization;
 
 namespace EAVFW.Extensions.QuickForms.Models
 {
-    public class SubmitProps : QuestionProps
+    public class SubmitProps 
     {
-        public override InputType InputType => InputType.Submit;
-
+        
         [JsonProperty("text")]
         public string Text { get; set; }
 
@@ -18,7 +19,7 @@ namespace EAVFW.Extensions.QuickForms.Models
         public string ButtonText { get; set; }
 
         [JsonProperty("submitFields")]
-        public SubmitFields SubmitFields { get; set; }
+        public RSJFProps SubmitFields { get; set; }
 
         [JsonProperty("submitUrl")]
         public string SubmitUrl { get; set; }

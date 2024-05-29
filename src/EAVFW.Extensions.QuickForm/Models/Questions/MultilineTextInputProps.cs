@@ -1,0 +1,21 @@
+﻿using EAVFW.Extensions.QuickForm.Models.Questions;
+using Newtonsoft.Json;
+
+namespace EAVFW.Extensions.QuickForms.Models
+{
+    public class MultilineTextInputProps : QuestionProps
+    {
+        [JsonProperty("inputType")]
+        public override string InputType => InputTypes.MultilineText;
+
+        [JsonProperty("text")]
+        public string Text { get; set; }
+
+        [JsonProperty("placeholder")]
+        public string Placeholder { get; set; }
+        [JsonProperty("paragraph")]
+        public string Paragraph { get; set; }
+    }
+
+
+}
