@@ -26,7 +26,7 @@
 
 	<ItemGroup Condition="$(UseEAVFromNuget) != 'false'">
 		<PackageReference Include="EAVFramework" Version="$(EAVFrameworkVersion)" />
-		<PackageReference Include="EAVFW.Extensions.Documents" Version="3.0.3" />
+		<PackageReference Include="EAVFW.Extensions.Documents" Version="3.1.0" />
 	</ItemGroup>
 
 	<ItemGroup>
