@@ -3,7 +3,7 @@ using EAVFW.Extensions.QuickForm.Models.RJSF;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Serialization;
 
-namespace EAVFW.Extensions.QuickForms.Models
+namespace EAVFW.Extensions.QuickForm.Models
 {
     public class SubmitProps 
     {

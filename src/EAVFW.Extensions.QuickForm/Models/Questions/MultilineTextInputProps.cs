@@ -1,7 +1,7 @@
 ﻿using EAVFW.Extensions.QuickForm.Models.Questions;
 using Newtonsoft.Json;
 
-namespace EAVFW.Extensions.QuickForms.Models
+namespace EAVFW.Extensions.QuickForm.Models
 {
     public class MultilineTextInputProps : QuestionProps
     {

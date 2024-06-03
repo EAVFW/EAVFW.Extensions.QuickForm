@@ -7,8 +7,8 @@ using System;
 using System.Collections.Generic;
 
 using System.Linq;
-using EAVFW.Extensions.QuickForms.Models;
-using EAVFW.Extensions.QuickForms.Abstractions;
+using EAVFW.Extensions.QuickForm.Models;
+using EAVFW.Extensions.QuickForm.Abstractions;
 using EAVFW.Extensions.Documents;
 using Newtonsoft.Json.Linq;
 using System.Security.Cryptography;

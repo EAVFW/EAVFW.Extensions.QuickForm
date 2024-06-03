@@ -2,7 +2,7 @@ using Newtonsoft.Json;
 using NJsonSchema;
 using System.Collections.Generic;
 using Newtonsoft.Json.Serialization;
-using EAVFW.Extensions.QuickForms.Models;
+using EAVFW.Extensions.QuickForm.Models;
 
 namespace EAVFW.Extensions.QuickForm.Models.RJSF
 {

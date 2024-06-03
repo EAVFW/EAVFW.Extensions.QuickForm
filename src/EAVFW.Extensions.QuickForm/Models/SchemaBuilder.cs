@@ -7,7 +7,7 @@ using System.Reflection;
 using System.Linq;
 using System.Collections.Generic;
 using EAVFW.Extensions.QuickForm.Models.RJSF;
-namespace EAVFW.Extensions.QuickForms.Models
+namespace EAVFW.Extensions.QuickForm.Models
 {
     public interface ISchemaBuilder
     {

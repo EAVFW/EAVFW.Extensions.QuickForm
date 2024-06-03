@@ -6,7 +6,7 @@ using System.Linq;
 using Newtonsoft.Json.Linq;
 using EAVFW.Extensions.QuickForm.Models.Questions;
 
-namespace EAVFW.Extensions.QuickForms.Models
+namespace EAVFW.Extensions.QuickForm.Models
 {
     public class QuestionPropsJsonConverter : JsonConverter<QuestionProps>
     {

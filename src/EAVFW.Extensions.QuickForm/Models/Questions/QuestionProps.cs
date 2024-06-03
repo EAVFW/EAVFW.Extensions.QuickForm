@@ -3,7 +3,7 @@ using Newtonsoft.Json.Converters;
 using System.Xml.Linq;
 using Microsoft.VisualBasic.FileIO;
 using Newtonsoft.Json.Serialization;
-using EAVFW.Extensions.QuickForms.Models;
+using EAVFW.Extensions.QuickForm.Models;
 using System.Collections.Generic;
 
 namespace EAVFW.Extensions.QuickForm.Models.Questions

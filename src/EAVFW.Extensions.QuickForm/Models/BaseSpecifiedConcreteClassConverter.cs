@@ -2,7 +2,7 @@
 using System;
 using Newtonsoft.Json.Serialization;
 
-namespace EAVFW.Extensions.QuickForms.Models
+namespace EAVFW.Extensions.QuickForm.Models
 {
     public class BaseSpecifiedConcreteClassConverter<TBase> : DefaultContractResolver
     {

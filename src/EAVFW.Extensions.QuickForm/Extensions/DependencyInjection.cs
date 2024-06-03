@@ -1,7 +1,7 @@
 using EAVFramework.Plugins;
 using EAVFramework;
 using EAVFW.Extensions.Documents;
-using EAVFW.Extensions.QuickForms.Abstractions;
+using EAVFW.Extensions.QuickForm.Abstractions;
 using Microsoft.Extensions.DependencyInjection;
 using System;
 using System.Collections.Generic;
@@ -10,7 +10,7 @@ using System.Text;
 using System.Threading.Tasks;
 using Hafnia.BusinessLogic.Plugins.LOITemplates;
 
-namespace EAVFW.Extensions.QuickForms.Extensions
+namespace EAVFW.Extensions.QuickForm.Extensions
 {
     public static class DependencyInjection
     {
