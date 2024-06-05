@@ -7,6 +7,7 @@ using System.Reflection;
 using System.Linq;
 using System.Collections.Generic;
 using EAVFW.Extensions.QuickForm.Models.RJSF;
+using Microsoft.EntityFrameworkCore.Metadata.Internal;
 namespace EAVFW.Extensions.QuickForm.Models
 {
     public interface ISchemaBuilder
@@ -33,10 +34,29 @@ namespace EAVFW.Extensions.QuickForm.Models
                 ?.Value;
         }
 
-      
 
-       
 
+
+        public ISchemaBuilder AddQuickFormInputComponentProp(string propertyName, string option, object value)
+        {
+            var uischema = Uischema;
+
+            if (!uischema.ContainsKey(propertyName))
+            {
+                uischema[propertyName] = new UISchema();
+            }
+            uischema = uischema[propertyName];
+
+            if (!uischema.ContainsKey("ui:inputProps"))
+            {
+                uischema["ui:inputProps"] = new UISchema();
+            }
+            uischema = uischema["ui:inputProps"];
+
+            uischema.Add(option, new UISchema(value));
+
+            return this;
+        }
         public ISchemaBuilder AddUIOption<TOptionValue>(string propertyName, RJSFOption option, TOptionValue value)
         {
             var uischema = Uischema;
@@ -51,10 +71,20 @@ namespace EAVFW.Extensions.QuickForm.Models
 
             return this;
         }
+        public ISchemaBuilder AddUIOption<TOptionValue>(RJSFOption option, TOptionValue value)
+        { 
+            Uischema.Add($"ui:{GetEnumMemberValue(option)}", new UISchema(value));
+
+            return this;
+        }
 
 
-        public RSJFProps Build()
+        public RJSFProps Build()
         {
+            foreach(var attr in _type.GetCustomAttributes<RJSFUIOptionAttribute>())
+            {
+                AddUIOption(attr.Option, attr.Value);
+            }   
 
             foreach (var prop in _type.GetProperties())
             {
@@ -67,17 +97,28 @@ namespace EAVFW.Extensions.QuickForm.Models
                     AddUIOption(propName, option.Option, option.Value);
 
                 }
+
+                var quickformprops = prop.GetCustomAttributes<QuickFormInputComponentPropAttribute>();
+
+                foreach (var option in quickformprops)
+                {
+
+                    AddQuickFormInputComponentProp(propName, option.Option, option.Value);
+
+                }
             }
             var schema = JsonSchema.FromType(_type);
 
 
 
-            return new RSJFProps
+            return new RJSFProps
             {
                 Schema = schema,
                 UISchema = Uischema,
             };
         }
+
+     
     }
     public class SchemaBuilder<T> : SchemaBuilder, ISchemaBuilder
     {

@@ -19,6 +19,7 @@ namespace EAVFW.Extensions.QuickForm.Abstractions
         where TDocument : DynamicEntity, IDocumentEntity
     {
        
+        public Guid Id { get; set; }
         public TDocument QuickFormDefinition { get; set; }
 
         public Guid? QuickFormDefinitionId { get; set; }

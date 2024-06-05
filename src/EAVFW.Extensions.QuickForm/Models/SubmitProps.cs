@@ -19,7 +19,7 @@ namespace EAVFW.Extensions.QuickForm.Models
         public string ButtonText { get; set; }
 
         [JsonProperty("submitFields")]
-        public RSJFProps SubmitFields { get; set; }
+        public RJSFProps SubmitFields { get; set; }
 
         [JsonProperty("submitUrl")]
         public string SubmitUrl { get; set; }

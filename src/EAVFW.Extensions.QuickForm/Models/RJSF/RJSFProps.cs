@@ -6,7 +6,7 @@ using EAVFW.Extensions.QuickForm.Models;
 
 namespace EAVFW.Extensions.QuickForm.Models.RJSF
 {
-    public class RSJFProps
+    public class RJSFProps
     {
         [JsonProperty("schema")]
         public JsonSchema Schema { get; set; }
