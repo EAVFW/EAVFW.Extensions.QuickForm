@@ -18,6 +18,13 @@ namespace EAVFW.Extensions.QuickForm.Models.Questions
 
         [JsonProperty("logicalName")]
         public string LogicalName { get; set; }
+        
+        [JsonProperty("schemaName")]
+        public string SchemaName { get; set; }
+
+        [JsonProperty("text")]
+        public string Text { get; set; }
+
 
         [JsonExtensionData]
         public Dictionary<string,object> AdditionalData { get; set; }

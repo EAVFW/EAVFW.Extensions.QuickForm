@@ -1,5 +1,6 @@
+using EAVFW.Extensions.Configuration.RJSF;
 using EAVFW.Extensions.QuickForm.Models.Questions;
-using EAVFW.Extensions.QuickForm.Models.RJSF;
+
 using Newtonsoft.Json;
 using Newtonsoft.Json.Serialization;
 
