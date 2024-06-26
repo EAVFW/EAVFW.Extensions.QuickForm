@@ -8,9 +8,25 @@ namespace EAVFW.Extensions.QuickForm.Models
     {
         [JsonProperty("defaultNextButtonText")]
         public string DefaultNextButtonText { get; set; }
-
+          
+        [JsonProperty("tokens")]
+        public Dictionary<string, object> Tokens { get; set; }
+ 
+        [JsonProperty("autoAdvanceSlides")]
+        public bool AutoAdvanceSlides { get; set; }
+ 
+        [JsonProperty("enableQuestionNumbers")]
+        public bool EnableQuestionNumbers { get; set; }
+ 
+        [JsonProperty("showPressEnter")]
+        public bool ShowPressEnter { get; set; }
+ 
+        [JsonProperty("defaultSlideButtonIcon")]
+        public string DefaultSlideButtonIcon { get; set; }
+ 
         [JsonExtensionData]
-        public Dictionary<string, object> AdditionalData { get; set; }
+        public Dictionary<string, object> AdditionalData { get; set; } 
+    
 
     }
     public class QuickFormDefinition
