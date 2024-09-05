@@ -1,4 +1,4 @@
-﻿using EAVFW.Extensions.QuickForm.Models.Questions;
+using EAVFW.Extensions.QuickForm.Models.Questions;
 using Newtonsoft.Json;
 
 namespace EAVFW.Extensions.QuickForm.Models
@@ -8,8 +8,7 @@ namespace EAVFW.Extensions.QuickForm.Models
         [JsonProperty("inputType")]
         public override string InputType => InputTypes.MultilineText;
 
-        [JsonProperty("text")]
-        public string Text { get; set; }
+       
 
         [JsonProperty("placeholder")]
         public string Placeholder { get; set; }
