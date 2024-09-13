@@ -22,6 +22,9 @@ namespace EAVFW.Extensions.QuickForm.Models.Questions
         [JsonProperty("schemaName")]
         public string SchemaName { get; set; }
 
+        [JsonProperty("displayName")]
+        public string DisplayName { get; set; }
+
         [JsonProperty("text")]
         public string Text { get; set; }
 

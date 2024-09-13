@@ -7,9 +7,6 @@ namespace EAVFW.Extensions.QuickForm.Models.Questions
         [JsonProperty("inputType")]
         public override string InputType => InputTypes.Text;
 
-        [JsonProperty("text")]
-        public string Text { get; set; }
-
         [JsonProperty("placeholder")]
         public string Placeholder { get; set; }
         [JsonProperty("paragraph")]
