@@ -29,7 +29,8 @@ namespace EAVFW.Extensions.QuickForm.Models.Questions
         public string Text { get; set; }
 
 
-        [JsonExtensionData]
+        [Newtonsoft.Json.JsonExtensionData]
+        [System.Text.Json.Serialization.JsonExtensionData]
         public Dictionary<string,object> AdditionalData { get; set; }
     }
 
