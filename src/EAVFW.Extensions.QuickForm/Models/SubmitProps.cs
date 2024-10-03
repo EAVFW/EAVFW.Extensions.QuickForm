@@ -3,6 +3,7 @@ using EAVFW.Extensions.QuickForm.Models.Questions;
 
 using Newtonsoft.Json;
 using Newtonsoft.Json.Serialization;
+using System.Collections.Generic;
 
 namespace EAVFW.Extensions.QuickForm.Models
 {
@@ -26,6 +27,10 @@ namespace EAVFW.Extensions.QuickForm.Models
         public string SubmitUrl { get; set; }
         [JsonProperty("submitMethod")]
         public string SubmitMethod { get; set; } = "POST";
+
+        [Newtonsoft.Json.JsonExtensionData]
+        [System.Text.Json.Serialization.JsonExtensionData]
+        public Dictionary<string, object> AdditionalData { get; set; }
     }
 
 }
