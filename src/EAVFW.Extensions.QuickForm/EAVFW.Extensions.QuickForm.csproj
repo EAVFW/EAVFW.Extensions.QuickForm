@@ -1,7 +1,7 @@
 <Project Sdk="Microsoft.NET.Sdk">
 
 	<PropertyGroup>
-		<TargetFrameworks>net6.0;net8.0</TargetFrameworks>
+        <TargetFrameworks>net8.0;net9.0</TargetFrameworks>
 		<ImplicitUsings>disable</ImplicitUsings>
 		<Nullable>disable</Nullable>
 
@@ -26,8 +26,8 @@
 
 	<ItemGroup Condition="$(UseEAVFromNuget) != 'false'">
 		<PackageReference Include="EAVFramework" Version="$(EAVFrameworkVersion)" />
-		<PackageReference Include="EAVFW.Extensions.Documents" Version="3.1.0" />
-        <PackageReference Include="EAVFW.Extensions.Configuration" Version="2.2.1" />
+		<PackageReference Include="EAVFW.Extensions.Documents" Version="4.0.0" />
+        <PackageReference Include="EAVFW.Extensions.Configuration" Version="3.0.0" />
 	</ItemGroup>
 
 </Project>
