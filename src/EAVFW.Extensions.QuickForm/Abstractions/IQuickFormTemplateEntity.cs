@@ -77,10 +77,8 @@ namespace EAVFW.Extensions.QuickForm.Abstractions
             using var textReader = new StreamReader(decompressor);
             using var jsonReader = new JsonTextReader(textReader);
 
-            var serializer = new Newtonsoft.Json.JsonSerializer
-            {
-                NullValueHandling = NullValueHandling.Ignore
-            };
+            var serializer = Newtonsoft.Json.JsonSerializer.CreateDefault(new JsonSerializerSettings { NullValueHandling = NullValueHandling.Ignore });
+
 
             return Task.FromResult(serializer.Deserialize<T>(jsonReader));
         }
