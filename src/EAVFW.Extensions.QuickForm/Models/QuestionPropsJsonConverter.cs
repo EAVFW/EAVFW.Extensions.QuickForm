@@ -23,7 +23,7 @@ namespace EAVFW.Extensions.QuickForm.Models
                 .Where(k => !string.IsNullOrEmpty(k.InputType))
                 .ToDictionary(k => k.InputType, v => v.GetType()))
             {
-                _pairs.Add(pair.Key, pair.Value);
+                _pairs[pair.Key] = pair.Value;
             }
         }
         public static IEnumerable<T> GetEnumerableOfType<TAssembly,T>(params object[] constructorArgs) where T : class
